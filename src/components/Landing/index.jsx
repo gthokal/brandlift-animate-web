@@ -55,7 +55,6 @@ export default function Home() {
         muted
         loop
         playsInline
-        
         className={styles.videoBg}
       >
         <source src="/images/brandlift-bg-video.mp4" type="video/mp4" />

@@ -61,7 +61,7 @@ export default function index() {
                         <span>
                             <h3>socials</h3>
                             <Magnetic>
-                                <p>Awwwards</p>
+                                <p>Brandlift</p>
                             </Magnetic>
                         </span>
                         <Magnetic>
