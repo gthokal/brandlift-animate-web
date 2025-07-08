@@ -8,6 +8,8 @@ import Projects from '../components/Projects';
 import Description from '../components/Description';
 import SlidingImages from '../components/SlidingImages';
 import Contact from '../components/Contact';
+import Typo from '../components/Typo';
+import About from '../components/About';
 
 export default function Home() {
 
@@ -34,7 +36,8 @@ export default function Home() {
         {isLoading && <Preloader />}
       </AnimatePresence>
       <Landing />
-      <Description />
+      <Typo />
+      <About />
       <Projects />
       <SlidingImages />
       <Contact />
