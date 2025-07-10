@@ -9,23 +9,23 @@ import Rounded from '../../common/RoundedButton';
 
 const projects = [
   {
-    title: "C2 Montreal",
-    src: "c2montreal.png",
+    title: "Instagram",
+    src: "instagram-img.png",
     color: "#000000"
   },
   {
-    title: "Office Studio",
-    src: "officestudio.png",
+    title: "Facebook",
+    src: "facebook-img.png",
     color: "#8C8C8C"
   },
   {
-    title: "Locomotive",
-    src: "locomotive.png",
+    title: "LinkedIn",
+    src: "linkedin-img.png",
     color: "#EFE8D3"
   },
   {
-    title: "Silencio",
-    src: "silencio.png",
+    title: "Pinterest",
+    src: "pinterest-img.png",
     color: "#706D63"
   }
 ]
@@ -91,19 +91,19 @@ export default function Home() {
     <>
         <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className={styles.modalContainer}>
             <div style={{top: index * -100 + "%"}} className={styles.modalSlider}>
-            {
-                projects.map( (project, index) => {
-                const { src, color } = project
-                return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
-                    <Image 
-                    src={`/images/${src}`}
-                    width={300}
-                    height={0}
-                    alt="image"
-                    />
-                </div>
-                })
-            }
+              {
+                  projects.map( (project, index) => {
+                  const { src, color } = project
+                  return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
+                      <Image 
+                      src={`/images/${src}`}
+                      width={300}
+                      height={0}
+                      alt="image"
+                      />
+                  </div>
+                  })
+              }
             </div>
         </motion.div>
         <motion.div ref={cursor} className={styles.cursor} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"}></motion.div>
