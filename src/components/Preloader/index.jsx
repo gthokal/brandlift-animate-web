@@ -46,7 +46,7 @@ export default function Index() {
             {dimension.width > 0 && 
             <>
                 <motion.p variants={opacity} initial="initial" animate="enter">
-                    <span>
+                    {/* <span>
                         {index === 0 && (
                             <Image 
                                 src="/images/animation-logo.png"
@@ -55,7 +55,19 @@ export default function Index() {
                                 alt="background"
                             />
                         )}
-                    </span>{words[index]}</motion.p>
+                    </span> */}
+                    {words[index]}
+                    <span className={styles.logoFlight}>
+                        {index === 2 && (
+                            <Image 
+                                src="/images/animation-logo.png"
+                                width={80}
+                                height={140}
+                                alt="background"
+                            />
+                        )}
+                    </span>
+                    </motion.p>
                 <svg>
                     <motion.path variants={curve} initial="initial" exit="exit"></motion.path>
                 </svg>

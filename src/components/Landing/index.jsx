@@ -61,7 +61,6 @@ export default function Home() {
       </video>
 
       <div className={styles.sliderContainer}>
-
         <div ref={slider} className={styles.slider}>
           <p ref={firstText}>Social Media Marketing - Branding - SEO & Content Strategy -</p>
           <p ref={secondText}>Social Media Marketing - Branding - SEO & Content Strategy -</p>

@@ -23,6 +23,7 @@
         font-weight: 700;
         align-items: center;
         position: absolute;
+        position: relative;
         z-index: 1;
         span{
             display: flex;
@@ -31,6 +32,14 @@
             width: 100px;
             height: 160px;
             margin-right: 10px;
+        }
+
+        .logoFlight{
+            position: absolute;
+            top: -80%;
+            right: -4%;
+            width: 100px;
+            height: 160px;
         }
     }
 }

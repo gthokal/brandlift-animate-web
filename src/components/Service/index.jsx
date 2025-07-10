@@ -1,26 +1,25 @@
 
 'use client';
 import styles from './style.module.scss';
-import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, useRef} from 'react';
+import { useInView, motion } from 'framer-motion';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import SplitType from 'split-type';
 import Lenis from '@studio-freight/lenis';
+import { slideUp, opacity } from './animation';
+import Rounded from '../../common/RoundedButton';
+import ScrollEarth from '../ScrollEarth';
 
-import Description from '../Description';
-import AnimatedTitle from '../AnimatedTitle';
 
+export default function Service() {
 
-export default function Index() {
+    const phrase = "We bring our passion for good design to brave brands and deliver something you can shout about.";
+    const description = useRef(null);
+    const isInView = useInView(description);
 
     const containerRef = useRef(null);
-    const sections = [
-        { title: "Welcome to <br /> BrandLift Media" },
-        { title: "Our Creative <br /> Services" },
-        { title: "Why Choose <br /> Our Team" }
-    ];
     
     useEffect(() => {
         let lenis;
@@ -65,7 +64,7 @@ export default function Index() {
                     scrollTrigger: {
                         trigger: containerRef.current,
                         start: 'top 85%',
-                        end: 'top 35%',
+                        end: 'top 48%',
                         scrub: true,
                         markers: true
                     }
@@ -113,14 +112,34 @@ export default function Index() {
         <motion.div>
             <>
                 <div className={styles.typoFlex}>
-                    <h2 className={styles.heading}>About</h2>
-                    <AnimatedTitle />
-                    <h2 className={styles.contentTitle}>
-                        <span ref={containerRef} className={styles.target}>Who We Are</span>
-                        <span ref={containerRef} className={styles.target}>Where Ideas Take Flight</span>
-                    </h2>
-                    <Description />
+                    <h2 className={styles.heading}>Service</h2>
+                    
+                    <div>
+                        <div>
+                            <h2 className={styles.contentTitle}>
+                                <span ref={containerRef} className={styles.target}>We're a digital</span>
+                                <span ref={containerRef} className={styles.target}>marketing agency</span>
+                                <span ref={containerRef} className={styles.target}>with expertise</span>
+                            </h2>
+                        </div>
+                        <div>
+                            <div ref={description} className={styles.description}>
+                                <div className={styles.body}>
+                                    <p className={styles.whiteColor}>
+                                    {
+                                        phrase.split(" ").map( (word, index) => {
+                                            return <span key={index} className={styles.mask}><motion.span variants={slideUp} custom={index} animate={isInView ? "open" : "closed"} key={index}>{word}</motion.span></span>
+                                        })
+                                    }
+                                    </p>
+                                    <motion.p variants={opacity} animate={isInView ? "open" : "closed"} className={styles.whiteColor}>The combination of my passion for design, code & interaction positions me in a unique place in the web design world.</motion.p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <ScrollEarth />
             </>
         </motion.div>
     )
