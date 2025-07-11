@@ -7,7 +7,7 @@
     border-top: 1px solid rgb(201, 201, 201);
     cursor: pointer;
     transition: all 0.2s;
-
+    
     h2{
         font-size: 60px;
         margin: 0px;
@@ -34,5 +34,18 @@
         p{
             transform: translateX(10px);
         }
+    }
+}
+
+.project .urlLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    h2{
+        color: #000;
+        text-decoration: none;
+        flex: 1;
     }
 }

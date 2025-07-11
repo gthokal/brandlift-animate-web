@@ -27,9 +27,13 @@
                     position: relative;
                     border-radius: 50%;
                     overflow: hidden;
-
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: #000;
+                    border: 2px solid white;
                     img{
-                        object-fit: cover;
+                        width: 50px;
                     }
                 }
                 h2{
