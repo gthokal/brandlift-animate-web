@@ -10,6 +10,7 @@ import Contact from '../components/Contact';
 import Typo from '../components/Typo';
 import ScrollEarth from '../components/ScrollEarth';
 import Service from '../components/Service';
+import CardList from '@/components/CardList';
 
 export default function Home() {
 
@@ -39,6 +40,7 @@ export default function Home() {
       <Service />
       <Typo />
       <Projects />
+      <CardList />
       <SlidingImages />
       <Contact />
     </main>

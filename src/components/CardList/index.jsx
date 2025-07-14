@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
-import Card from './card';
+import Card from './components/Card';
 
 
 
@@ -16,15 +16,16 @@ export default function index() {
                     <h1>Keep Scrolling to <br /> reveals the card</h1>
                 </section>
                 <section className='cards'>
-                    {[...Array(4)].map((_, index)=>{
+                    {[...Array(4)].map((_, index) => (
                         <Card 
                             key={index}
                             id={`card-${index + 1}`}
-                            frontSrc="/card-front.png"
+                            frontSrc="/images/back.png"
                             frontAlt="Card Image"
                             backText="Your card details appear here"
                         />
-                    })}
+                    ))}
+
                 </section>
                 <section className='footer'>
                     <h2>Footer Or Upcoming Section</h2>
