@@ -40,7 +40,7 @@ export default function Home() {
       <Service />
       <Typo />
       <Projects />
-      <CardList />
+      {/* <CardList /> */}
       <SlidingImages />
       <Contact />
     </main>

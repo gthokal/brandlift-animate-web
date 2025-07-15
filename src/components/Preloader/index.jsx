@@ -61,8 +61,8 @@ export default function Index() {
                         {index === 2 && (
                             <Image 
                                 src="/images/animation-logo.png"
-                                width={80}
-                                height={140}
+                                width={200}
+                                height={380}
                                 alt="background"
                             />
                         )}

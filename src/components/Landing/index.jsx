@@ -46,11 +46,11 @@ export default function Home() {
   return (
     <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.landing}>
       {/* <Image 
-        src="/images/brandlift-bg.jpg"
+        src="/images/landing-img.png"
         fill={true}
         alt="background"
       /> */}
-      <video
+      {/* <video
         autoPlay
         muted
         loop
@@ -58,7 +58,51 @@ export default function Home() {
         className={styles.videoBg}
       >
         <source src="/images/brandlift-bg-video.mp4" type="video/mp4" />
-      </video>
+      </video> */}
+
+      <div className={styles.heroBanner}>
+        <div className={styles.heroBannerblock}>
+          <strong className={styles.headText}>Where</strong>
+          <div className={styles.headTextBlock}>
+            <div className={styles.subTextBlock}>
+              <span className={styles.greenText}>Ideas</span>
+              <span>Takes</span>
+            </div>
+            <div>
+              <strong className={styles.headText}>flight</strong>
+            </div>
+          </div>
+          <div className={`${styles.bdrButton} ${styles.btn1}`}>
+              <span className={styles.bdrTag}>Positionting</span>
+          </div>
+          <div className={`${styles.bdrButton} ${styles.blurWhite} ${styles.btn2}`}>
+              <span className={styles.bdrTag}>Innovation</span>
+          </div>
+          <div className={`${styles.bdrButton} ${styles.btn3}`}>
+              <span className={styles.bdrTag}>Advertising</span>
+          </div>
+          <div className={`${styles.bdrButton} ${styles.btn4}`}>
+              <span className={styles.bdrTag}>Concept Labs</span>
+          </div>
+          <div className={`${styles.bdrButton} ${styles.blurWhite} ${styles.btn5}`}>
+              <span className={styles.bdrTag}>UI/UX Crafts</span>
+          </div>
+          <div className={`${styles.bdrButton} ${styles.blurWhite} ${styles.btn6}`}>
+              <span className={styles.bdrTag}>Growth Loops</span>
+          </div>
+          <div className={`${styles.bdrButton} ${styles.blurWhite} ${styles.btn7}`}>
+              <span className={styles.bdrTag}>Influence mapping</span>
+          </div>
+          <div className={styles.heroBallon}>
+            <Image 
+              src="/images/banner-ballon.png"
+              width="218"
+              height="340"
+              alt="background"
+            />
+          </div>
+        </div>
+      </div>
 
       <div className={styles.sliderContainer}>
         <div ref={slider} className={styles.slider}>
