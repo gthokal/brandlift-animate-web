@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function index(title, containerClass) {
+export default function Index(title, containerClass) {
         const containerRef = useRef(null);
 
         useEffect(() => {

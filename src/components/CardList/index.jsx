@@ -6,9 +6,7 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import Card from './components/Card';
 
-
-
-export default function index() {
+export default function Index() {
     return(
         <>
             <div className='container'>

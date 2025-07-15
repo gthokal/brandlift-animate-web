@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
 import Magnetic from '../../common/Magnetic';
 
-export default function index() {
+export default function Index() {
     
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -26,9 +26,10 @@ export default function index() {
                             alt={"image"}
                             src={`/images/animation-logo.png`}
                             /> */}
-                            <img src="/images/animation-logo.png" />
+                            {/* <img src="/images/animation-logo.png" /> */}
+                            <Image src="/images/animation-logo.png" alt="..." width={90} height={90} />
                         </div>
-                        <h2>Let's work</h2>
+                        <h2>Let&apos;s work</h2>
                     </span>
                     <h2>together</h2>
                     <motion.div style={{x}} className={styles.buttonContainer}>

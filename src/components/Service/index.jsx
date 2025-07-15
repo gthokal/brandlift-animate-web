@@ -117,7 +117,7 @@ export default function Service() {
                     <div>
                         <div>
                             <h2 className={styles.contentTitle}>
-                                <span ref={containerRef} className={styles.target}>We're a digital</span>
+                                <span ref={containerRef} className={styles.target}>We&apos;re a digital</span>
                                 <span ref={containerRef} className={styles.target}>marketing agency</span>
                                 <span ref={containerRef} className={styles.target}>with expertise</span>
                             </h2>
