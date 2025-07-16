@@ -1,0 +1,86 @@
+.clientContainer{
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+.clientRow{
+    margin: auto auto 3rem;
+    display: flex;
+    height: auto;
+    width: 100%;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+}
+.clientRow:nth-child(2n+2) {
+    flex-direction: row-reverse;
+}
+.clientItem {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+.clientSection{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background: url('/images/bg-gradient.png') no-repeat center center;
+    background-size: cover;
+}
+.clientImage {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.clientTitle{
+    font-size: 60px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 10px;
+    background: -webkit-linear-gradient(#fff, rgba(80, 80, 78, 0.9294117647));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    display: block;
+}
+.clientContent{
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    display: block;
+}
+.viewButton{
+  padding: 14px 24px;
+  border: none;
+  border-radius: 50px;
+  background: #aaff011a;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: white;
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+}
+.clientInfo{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+@media (min-width: 1080px) {
+    .clientRow {
+        height: 70vh;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .clientInfo {
+        margin-top: 0;
+        width: 41.666667%;
+        text-align: left;
+    }
+}
+
+    

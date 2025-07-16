@@ -11,6 +11,7 @@ import Typo from '../components/Typo';
 import ScrollEarth from '../components/ScrollEarth';
 import Service from '../components/Service';
 import CardList from '@/components/CardList';
+import Client from '@/components/Client';
 
 export default function Home() {
 
@@ -41,6 +42,7 @@ export default function Home() {
       <Typo />
       <Projects />
       {/* <CardList /> */}
+      <Client />
       <SlidingImages />
       <Contact />
     </main>
