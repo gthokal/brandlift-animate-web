@@ -33,11 +33,12 @@
     align-items: center;
 }
 .clientTitle{
-    font-size: 60px;
+    font-size: 70px;
+    line-height: 72px;
     font-weight: 700;
     color: #fff;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     background: -webkit-linear-gradient(#fff, rgba(80, 80, 78, 0.9294117647));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -45,9 +46,10 @@
     display: block;
 }
 .clientContent{
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     color: #fff;
+    margin-bottom: 16px;
     display: block;
 }
 .viewButton{
@@ -58,17 +60,36 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   color: white;
-  font-weight: bold;
+  font-weight: 400;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   z-index: 1;
 }
+.viewButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* Border thickness */
+  border-radius: 50px;
+  background: conic-gradient(
+    from 0deg,
+    #ffffff,
+    #AAFF01,
+  );
+  background-size: 200% 200%;
+  z-index: -1;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  box-sizing: border-box;
+}
 .clientInfo{
     display: flex;
     width: 100%;
-    align-items: center;
 }
 @media (min-width: 1080px) {
     .clientRow {
@@ -77,10 +98,24 @@
         flex-wrap: nowrap;
     }
     .clientInfo {
-        margin-top: 0;
+        margin-top: 100px;
         width: 41.666667%;
+        text-align: right;
+        justify-content: flex-end;
+        margin-right: 60px;
+    }
+    .clientRow:nth-child(2n+2) .clientInfo{
         text-align: left;
+        margin-right:0;
+        margin-left: 60px;
+    }
+    .clientImage {
+        width: 58.333333%;
     }
 }
 
-    
+.clientImage {
+  //transform: rotate(14deg) translate(220px, -100px);
+  //transform: rotate(-14deg) translate(-220px, -100px);
+  transition: 0.2s all ease;
+}

@@ -18,7 +18,7 @@ export default function Index(title, containerClass) {
                     trigger: containerRef.current,
                     start: "100 bottom",
                     end: "center bottom",
-                    toggleActions: "play none none reverse",
+                    //toggleActions: "play none none reverse",
                     onEnter: () => console.log("GSAP Triggered") // ← add this
                 },
             });

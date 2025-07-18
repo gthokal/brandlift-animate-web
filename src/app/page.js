@@ -9,9 +9,10 @@ import SlidingImages from '../components/SlidingImages';
 import Contact from '../components/Contact';
 import Typo from '../components/Typo';
 import ScrollEarth from '../components/ScrollEarth';
-import Service from '../components/Service';
+import Service from '@/components/Service';
 import CardList from '@/components/CardList';
 import Client from '@/components/Client';
+import About from '@/components/About';
 
 export default function Home() {
 
@@ -39,10 +40,11 @@ export default function Home() {
       </AnimatePresence>
       <Landing />
       <Service />
-      <Typo />
-      <Projects />
+      {/* <Typo /> */}
       {/* <CardList /> */}
+      <About />
       <Client />
+      <Projects />
       <SlidingImages />
       <Contact />
     </main>

@@ -1,8 +1,18 @@
 'use client';
+
 import styles from './style.module.scss';
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, useRef} from 'react';
+import { useInView, motion } from 'framer-motion';
 import Image from 'next/image';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SplitType from 'split-type';
+import Lenis from '@studio-freight/lenis';
+import ScrollEarth from '../ScrollEarth';
+import SectionHeading from '../SectionHeading'
+import { ReactLenis } from "lenis/react"
+
+gsap.registerPlugin(ScrollTrigger);
 
 const clients = [
   {
@@ -42,7 +52,6 @@ const clients = [
   }
 ]
 
-// ✅ Create a separate component to prevent recursion
 function ClientItem({ title, url, index, manageModal, desc }) {
   return (
     <div
@@ -51,19 +60,18 @@ function ClientItem({ title, url, index, manageModal, desc }) {
       onMouseEnter={(e) => manageModal(true, index, e.clientX, e.clientY)}
       onMouseLeave={() => manageModal(false, 0)}
       onClick={() => window.open(url, "_blank")}
-    >
-        
-            <div className={styles.clientInfoWrapper}>
-                <strong className={styles.clientTitle}>{title}</strong>
-                <span className={styles.clientContent}>{desc}</span>
-                <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >
-                    <span className={styles.viewButton}>View Project</span>
-                </a>
-            </div>
+    > 
+      <div className={styles.clientInfoWrapper}>
+          <strong className={styles.clientTitle}>{title}</strong>
+          <span className={styles.clientContent}>{desc}</span>
+          <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              <span className={styles.viewButton}>View Project</span>
+          </a>
+      </div>
     </div>
   );
 }
@@ -73,66 +81,151 @@ export default function Client() {
   const { active, index } = modal;
   const clientSection = useRef(null);
 
+  const clientImgRefs = useRef([]);
+  const cardRefs = useRef([]);
+  clientImgRefs.current = []; 
+  
+  
+
   const manageModal = (active, index, x, y) => {
     setModal({ active, index });
   };
 
+  useEffect(()=>{
+    const scrollTriggerSettings = {
+      trigger: ".main",
+      start: "top 25%",
+      toggleActions: "play reverse play reverse",
+    };
+
+    const leftXValues = [-800, -900, -400];
+    const rightXValues = [800, 900, 400];
+
+    const leftRotationValues = [-30, -20, -35];
+    const rightRotationValues = [30, 20, 35];
+
+    const yValues = [100, -150, -400];
+
+    clientImgRefs.current.forEach((imgEl, idx) => {
+      const cardEl = cardRefs.current[idx];
+      if (!imgEl || !cardEl) return;
+      //const isLeft = cardEl.classList.contains(styles.leftCard);
+
+      const isLeft = idx % 2 === 0;
+
+      gsap.fromTo(
+        imgEl,
+        {
+          rotate: isLeft ? 14 : -14,
+          x: isLeft ? 220 : -220,
+          y: -100,
+        },
+        {
+          rotate: 0,
+          x: 0,
+          y: 0,
+          duration: 1.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: imgEl,
+            start: 'top 80%',
+            end: 'top 30%',
+            scrub: true,
+            markers: true, // uncomment for debug
+          },
+        }
+      );
+    }); 
+
+  //   gsap.utils.toArray(clientImgRefs.current).forEach((imgEl, index) => {
+  //   if (imgEl) {
+  //     gsap.fromTo(imgEl, 
+  //       { 
+  //         y: 100, 
+  //         opacity: 0 
+  //       }, 
+  //       {
+  //         y: 0,
+  //         opacity: 1,
+  //         duration: 1,
+  //         ease: 'power2.out',
+  //         scrollTrigger: {
+  //           trigger: imgEl,
+  //           start: 'top 80%',
+  //           toggleActions: 'play none none reverse',
+  //         }
+  //       }
+  //     );
+  //   }
+  // });
+
+  }, []);
+
+
   return (
     <>
       <motion.div ref={clientSection} className={styles.clientSection}>
-        <div className={styles.clientContainer}>
-          {clients.map((client, idx) => {
-            const { src } = client;
-            return (
-                <div 
-                key={idx}
-                className={styles.clientRow}
-                >
-                    <ClientItem
-                        key={idx}
-                        index={idx}
-                        title={client.title}
-                        desc={client.desc}
-                        url={client.url}
-                        manageModal={manageModal}
-                    />
-                    <div className={styles.clientImage}>
-                        <Image 
-                        src={`/images/${src}`}
-                        width={769}
-                        height={578}
-                        alt="image"
+            <div className={styles.clientContainer}>
+              {clients.map((client, idx) => {
+                const { src } = client;
+                return (
+                      <div 
+                        key={idx} 
+                        ref={(el) => (cardRefs.current[idx] = el)}
+                        className={`${styles.clientRow}`}
+                      >
+                        <ClientItem
+                          key={idx}
+                          index={idx}
+                          title={client.title}
+                          desc={client.desc}
+                          url={client.url}
+                          manageModal={manageModal}
                         />
-                    </div>
-                </div>
-            );
-          })}
-        </div>
 
-            {/* <div className={styles.clientSection}>
-                <div className={styles.clientContainer}>
-                    <div 
-                    key={idx}
-                    className={styles.modal}
-                    style={{ backgroundColor: color }}>
-                        <div className={styles.clientInfo}>
-                            <div className={styles.clientInfoWrapper}>
-                                <strong className={styles.clientTitle}>snackszo</strong>
-                                <span className={styles.clientContent}>Cafe,  Social Media,  Reels</span>
-                                <span className={styles.viewButton}>View Project</span>
-                            </div>
-                        </div>
-                        <div className={styles.clientImage}>
-                            <Image 
-                            src={`/images/${src}`}
-                            width={300}
-                            height={0}
+                        <div
+                          ref={(el) => (clientImgRefs.current[idx] = el)}
+                          className={`${styles.clientImage} ${idx % 2 === 0 ? 'rightCard' : 'leftCard'}`}
+                        >
+                          <Image 
+                            src={`/images/${client.src}`}
+                            width={769}
+                            height={578}
                             alt="image"
-                            />
+                          />
                         </div>
-                    </div>
-                </div>
-            </div> */}
+                      </div>
+
+                    // <div 
+                    // key={idx}
+                    // className={styles.clientRow}
+                    // >
+                    //     <ClientItem
+                    //         key={idx}
+                    //         index={idx}
+                    //         title={client.title}
+                    //         desc={client.desc}
+                    //         url={client.url}
+                    //         manageModal={manageModal}
+                    //     />
+
+                    //     <div
+                    //       ref={(el) => (clientImgRefs.current[idx] = el)}
+                    //       className={styles.clientImage}
+                    //     >
+                    //       <Image 
+                    //         src={`/images/${src}`}
+                    //         width={769}
+                    //         height={578}
+                    //         alt="image"
+                    //       />
+                    //     </div>
+
+                    // </div>
+                );
+              })}
+            </div>
+        
 
 
       </motion.div>

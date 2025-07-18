@@ -8,21 +8,23 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import SplitType from 'split-type';
 import Lenis from '@studio-freight/lenis';
+import Rounded from '../../common/RoundedButton';
 import SectionHeading from '../SectionHeading';
 import ScrollEarth from '../ScrollEarth';
 
-export default function Service() {
+
+export default function About() {
     return (
         <motion.div>
             <>
                 <SectionHeading
-                    title="Service"
-                    headings={["Were a digital", "Marketing Agency", "with expertise"]}
-                    phrase="We bring our passion for good design to brave brands and deliver something you can shout about."
-                    descriptionSubtext="The combination of my passion for design, code & interaction positions me in a unique place in the web design world."
+                    title="About"
+                    headings={["Who We Are", "Where ideas take flight"]}
+                    phrase="Helping brands to stand out in the digital era. Together we will set the new status quo. No nonsense, always on the cutting edge"
+                    descriptionSubtext="We're top digital agency, carving our own path in the digital world for design, code & interaction positions me in a unique place in the web design world."
                 />
-                <ScrollEarth />
             </>
         </motion.div>
     )
 }
+

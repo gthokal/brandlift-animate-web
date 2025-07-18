@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/all';
 import SplitType from 'split-type';
 import Lenis from '@studio-freight/lenis';
 
-import Description from '../Description';
+// import Description from '../Description';
 import AnimatedTitle from '../AnimatedTitle';
 
 
@@ -67,7 +67,7 @@ export default function Index() {
                         start: 'top 85%',
                         end: 'top 35%',
                         scrub: true,
-                        markers: true
+                        //markers: true
                     }
                 }
             )
@@ -92,7 +92,7 @@ export default function Index() {
                         start: 'top 90%',
                         end: 'top 60%',
                         scrub: true,
-                        markers: true,
+                        //markers: true,
                     },
                 }
             );
