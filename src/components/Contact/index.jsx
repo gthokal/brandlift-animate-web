@@ -21,12 +21,6 @@ export default function Index() {
                 <div className={styles.title}>
                     <span>
                         <div className={styles.imageContainer}>
-                            {/* <Image 
-                            fill={true}
-                            alt={"image"}
-                            src={`/images/animation-logo.png`}
-                            /> */}
-                            {/* <img src="/images/animation-logo.png" /> */}
                             <Image src="/images/animation-logo.png" alt="..." width={90} height={90} />
                         </div>
                         <h2>Let&apos;s work</h2>

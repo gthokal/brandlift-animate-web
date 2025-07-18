@@ -85,6 +85,10 @@
   text-transform: capitalize;
   letter-spacing: -1px;
   line-height: 162px;
+  @media (max-width: 768px){
+    font-size: 54px;
+    line-height: 60px;
+  }
 }
 
 .headTextBlock{
@@ -102,6 +106,10 @@
   align-items: flex-end;
   color: #fff;
   margin-right: 20px;
+  @media (max-width: 768px){
+    font-size: 24px;
+    line-height: 20px;
+  }
 }
 .greenText{
   color: #AAFF01;
@@ -122,6 +130,9 @@
   align-items: center;
   overflow: hidden;
   z-index: 1;
+  @media (max-width: 768px){
+    padding: 5px 8px;
+  }
 }
 
 .bdrButton::before {
@@ -145,6 +156,9 @@
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   box-sizing: border-box;
+  @media (max-width: 768px){
+    padding: 1px;
+  }
 }
 
 @keyframes borderFlow {
@@ -189,6 +203,9 @@
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 1.5px;
+  @media (max-width: 768px){
+    font-size: 10px;
+  }
 }
 
 .bdrButton.btn1{
@@ -198,18 +215,33 @@
 .bdrButton.btn2{
   top:6%;
   right: 10%;
+  @media (max-width: 768px){
+    top: 2%;
+    right: 14%;
+  }
 }
 .bdrButton.btn3{
   top:37%;
   right: 28%;
+  @media (max-width: 768px){
+    right: 8%;
+  }
 }
 .bdrButton.btn4{
   bottom: 10%;
   left: -13%;
+  @media (max-width: 768px){
+    bottom: 117%;
+    left: 4%;
+  }
 }
 .bdrButton.btn5{
   bottom: 16%;
   left: 21%;
+  @media (max-width: 768px){
+    bottom: 40%;
+    left: 23%;
+  }
 }
 .bdrButton.btn6{
   bottom: -6%;
@@ -218,6 +250,9 @@
 .bdrButton.btn7{
   bottom: -18%;
   right: 17%;
+  @media (max-width: 768px){
+    right: 2%;
+  }
 }
 .heroBallon{
   width: 218px;

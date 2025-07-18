@@ -6,6 +6,11 @@
     flex-direction: column;
     padding-top: 200px;
     background: #0f0f0f;
+    @media (max-width: 768px){
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 40px;
+    }
     .socialContainer{
         max-width: 1400px;
         width: 100%;
@@ -14,6 +19,9 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 100px;
+        @media (max-width: 768px){
+            margin-bottom: 30px;
+        }
     }
     
     .modalContainer{
@@ -66,7 +74,5 @@
     .cursorLabel{
         background-color: transparent;
     }
-    
-    
 }
 

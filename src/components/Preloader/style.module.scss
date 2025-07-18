@@ -25,6 +25,9 @@
         position: absolute;
         position: relative;
         z-index: 1;
+        @media (max-width: 768px){
+            font-size: 44px;
+        }
         span{
             display: flex;
             justify-content: center;
@@ -32,6 +35,10 @@
             width: 240px;
             height: 400px;
             margin-right: 10px;
+            @media (max-width: 768px){
+                width: 140px;
+                height: 200px;
+            }
         }
 
         .logoFlight{
@@ -42,6 +49,13 @@
             margin: auto;
             width: 240px;
             height: 400px;
+            @media (max-width: 768px){
+                width: 140px;
+                height: 200px;
+                transform: scale(0.5);
+                margin-top: 10px;
+                top: -360%;
+            }
         }
     }
 }

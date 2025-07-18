@@ -131,7 +131,7 @@ export default function Client() {
             start: 'top 80%',
             end: 'top 30%',
             scrub: true,
-            markers: true, // uncomment for debug
+            //markers: true, // uncomment for debug
           },
         }
       );
@@ -189,7 +189,7 @@ export default function Client() {
                         >
                           <Image 
                             src={`/images/${client.src}`}
-                            width={769}
+                            width={738}
                             height={578}
                             alt="image"
                           />

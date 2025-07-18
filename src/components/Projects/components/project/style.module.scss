@@ -7,17 +7,31 @@
     border-top: 1px solid rgb(201, 201, 201);
     cursor: pointer;
     transition: all 0.2s;
-    
+    @media (max-width: 768px){
+        padding: 20px;
+    }
     h2{
         font-size: 60px;
         margin: 0px;
         font-weight: 400;
         transition: all 0.4s;
+        @media (max-width: 768px){
+            font-size: 24px;
+        }
     }
 
     p{
         transition: all 0.4s;
         font-weight: 300;
+        @media (max-width: 768px){
+            margin: 0;
+        }
+        img{
+            @media (max-width: 768px){
+                width: 30px;
+                height: 30px;
+            }
+        }
     }
 
     &:last-of-type{
@@ -26,11 +40,9 @@
 
     &:hover{
         opacity: 0.5;
-
         h2{
             transform: translateX(-10px);
         }
-
         p{
             transform: translateX(10px);
         }

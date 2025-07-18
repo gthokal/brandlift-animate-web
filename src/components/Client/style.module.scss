@@ -1,6 +1,10 @@
 .clientContainer{
     padding-left: 4rem;
     padding-right: 4rem;
+    @media (max-width: 768px){
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 .clientRow{
     margin: auto auto 3rem;
@@ -12,6 +16,9 @@
 }
 .clientRow:nth-child(2n+2) {
     flex-direction: row-reverse;
+    @media (max-width: 768px){
+        flex-direction: column-reverse;
+    }
 }
 .clientItem {
     margin-top: 3rem;
@@ -26,11 +33,16 @@
     padding-bottom: 4rem;
     background: url('/images/bg-gradient.png') no-repeat center center;
     background-size: cover;
+    @media (max-width: 768px){
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 }
 .clientImage {
     display: flex;
     width: 100%;
     align-items: center;
+    justify-content: center;
 }
 .clientTitle{
     font-size: 70px;
@@ -44,6 +56,10 @@
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     display: block;
+    @media (max-width: 768px){
+        font-size: 38px;
+        line-height: 34px;
+    }
 }
 .clientContent{
     font-size: 22px;
@@ -51,6 +67,10 @@
     color: #fff;
     margin-bottom: 16px;
     display: block;
+    @media (max-width: 768px){
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
 }
 .viewButton{
   padding: 14px 24px;
@@ -66,6 +86,9 @@
   align-items: center;
   overflow: hidden;
   z-index: 1;
+  @media (max-width: 768px){
+    padding: 12px 16px;
+  }
 }
 .viewButton::before {
   content: '';
@@ -86,10 +109,17 @@
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   box-sizing: border-box;
+  @media (max-width: 768px){
+    padding: 1px;
+  }
 }
 .clientInfo{
     display: flex;
     width: 100%;
+    @media (max-width: 768px){
+        justify-content: center;
+        text-align: center;
+    }
 }
 @media (min-width: 1080px) {
     .clientRow {
@@ -99,18 +129,19 @@
     }
     .clientInfo {
         margin-top: 100px;
-        width: 41.666667%;
+        width: 40%;
         text-align: right;
         justify-content: flex-end;
-        margin-right: 60px;
     }
     .clientRow:nth-child(2n+2) .clientInfo{
         text-align: left;
-        margin-right:0;
-        margin-left: 60px;
+    }
+    .clientRow:nth-child(2n+2) .clientImage{
+        margin-right: 4%;
     }
     .clientImage {
-        width: 58.333333%;
+        width: 56%;
+        margin-left: 4%;
     }
 }
 
@@ -118,4 +149,15 @@
   //transform: rotate(14deg) translate(220px, -100px);
   //transform: rotate(-14deg) translate(-220px, -100px);
   transition: 0.2s all ease;
+    @media (max-width: 768px){
+        img{
+            width: 300px;
+            height: 210px;
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+    }
 }
+
+

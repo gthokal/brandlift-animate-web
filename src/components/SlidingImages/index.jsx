@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef,  useEffect, useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import styles from './style.module.scss';
 import Image from 'next/image';
@@ -42,16 +42,25 @@ const slider2 = [
 ]
 
 export default function Index() {
+  const [isMobile, setIsMobile] = useState(false);
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'end start']
+  });
 
-    const container = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ["start end", "end start"]
-    })
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    const x1 = useTransform(scrollYProgress, [0, 1], [0, 150])
-    const x2 = useTransform(scrollYProgress, [0, 1], [0, -150])
-    const height = useTransform(scrollYProgress, [0, 0.9], [50, 0])
+  const x1 = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, 150]);
+  const x2 = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, -150]);
+  const height = useTransform(scrollYProgress, [0, 0.9], [50, 0]);
 
     return (
         <div ref={container} className={styles.slidingImages}>
