@@ -38,7 +38,7 @@ const clients = [
   },
   {
     title: "chishti global solution",
-    src: "chisti.png",
+    src: "Chisti.png",
     color: "#000000",
     desc: "Cafe,  Social Media,  Reels",
     url: "https://www.pinterest.com/officialbrandlift"
