@@ -119,7 +119,7 @@ export default function Index() {
                         <span ref={containerRef} className={styles.target}>Who We Are</span>
                         <span ref={containerRef} className={styles.target}>Where Ideas Take Flight</span>
                     </h2>
-                    <Description />
+                    {/* <Description /> */}
                 </div>
             </>
         </motion.div>
