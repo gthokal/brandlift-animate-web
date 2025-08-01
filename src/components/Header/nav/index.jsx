@@ -26,6 +26,7 @@ const navItems = [
   },
 ]
 
+
 export default function Index() {
 
   const pathname = usePathname();

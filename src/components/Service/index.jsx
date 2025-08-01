@@ -13,7 +13,7 @@ import ScrollEarth from '../ScrollEarth';
 
 export default function Service() {
     return (
-        <motion.div>
+        <motion.div id="services">
             <>
                 <SectionHeading
                     title="Service"

@@ -17,7 +17,7 @@ gsap.registerPlugin(SplitText);
 
 export default function About() {
     return (
-        <motion.div>
+        <motion.div id="about">
             <>
                 <SectionHeading
                     title="About"
