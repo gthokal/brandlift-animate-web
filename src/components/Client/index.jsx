@@ -189,8 +189,8 @@ export default function Client() {
                         >
                           <Image 
                             src={`/images/${client.src}`}
-                            width={738}
-                            height={578}
+                            width={638}
+                            height={478}
                             alt="image"
                           />
                         </div>
