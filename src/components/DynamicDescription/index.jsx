@@ -19,6 +19,7 @@ export default function DynamicDescription({
   containerClass = ''
 }) {
   const containerRef = useRef(null);
+  const wordRefs = useRef([]);
   const isInView = useInView(containerRef);
 
   useEffect(() => {
@@ -30,34 +31,36 @@ export default function DynamicDescription({
         isDesktop: '(min-width: 768px)',
       },
       (context) => {
-        const { isMobile, isDesktop } = context.conditions;
+        const { isMobile } = context.conditions;
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
-            start: '100 bottom',
+            start: 'top 90%', // Better for mobile
             end: 'center bottom',
             toggleActions: 'play none none reverse',
           },
         });
 
         tl.to(
-          '.animated-word',
+          wordRefs.current,
           {
             opacity: 1,
-            transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
+            rotateX: 0,
+            rotateY: 0,
+            z: 0,
             ease: 'power2.inOut',
-            stagger: isMobile ? 0.01 : 0.02, // faster stagger on mobile
-            duration: isMobile ? 0.5 : 0.8,   // shorter duration on mobile
+            stagger: isMobile ? 0.01 : 0.03,
+            duration: isMobile ? 0.4 : 0.8,
           },
           0
         );
 
-        return () => tl.kill(); // Cleanup
+        return () => tl.kill();
       }
     );
 
-    return () => mm.revert(); // Clean up all matchMedia contexts
+    return () => mm.revert();
   }, []);
 
   return (
@@ -67,10 +70,15 @@ export default function DynamicDescription({
           {phrase.split(' ').map((word, index) => (
             <span key={index} className={styles.mask}>
               <motion.span
+                ref={(el) => (wordRefs.current[index] = el)}
                 variants={slideUp}
                 custom={index}
                 animate={isInView ? 'open' : 'closed'}
-                className="animated-word"
+                style={{
+                  opacity: 0,
+                  transform: 'translate3d(0, 20px, 0) rotateX(10deg) rotateY(10deg)',
+                  display: 'inline-block',
+                }}
               >
                 {word}
               </motion.span>
