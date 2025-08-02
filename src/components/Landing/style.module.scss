@@ -76,7 +76,7 @@
 }
 
 .headText{
-  font-size: 180px;
+  font-size: 148px;
   font-weight: 800;
   color: #fff;
   background: -webkit-linear-gradient(#fff, #50504eed);
@@ -209,11 +209,11 @@
 }
 
 .bdrButton.btn1{
-  top:-5%;
+  top:-2%;
   left: 30%;
 }
 .bdrButton.btn2{
-  top:6%;
+  top:8%;
   right: 10%;
   @media (max-width: 768px){
     top: 2%;
@@ -228,8 +228,8 @@
   }
 }
 .bdrButton.btn4{
-  bottom: 10%;
-  left: -13%;
+  bottom: 16%;
+  left: -12%;
   @media (max-width: 768px){
     bottom: 117%;
     left: 4%;
@@ -248,7 +248,7 @@
   right: 45%;
 }
 .bdrButton.btn7{
-  bottom: -18%;
+  bottom: -12%;
   right: 17%;
   @media (max-width: 768px){
     right: 2%;

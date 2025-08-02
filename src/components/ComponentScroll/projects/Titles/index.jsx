@@ -28,19 +28,17 @@ function Title({data, setSelectedProject}) {
     const clip = useMotionTemplate`inset(0 ${clipProgress}% 0 0)`;
     
     return (
-        <div ref={container} className={styles.title}>
-            <div 
-                className={styles.wrapper}
-                onMouseOver={() => {setSelectedProject(i)}}
-                onMouseLeave={() => {setSelectedProject(null)}}
-            >
-                <motion.p style={{clipPath: clip}}>
+        <motion.div ref={container} className={styles.title} 
+            onMouseOver={() => {setSelectedProject(i)}}
+            onMouseLeave={() => {setSelectedProject(null)}} style={{clipPath: clip}}>
+            <div className={styles.wrapper}>
+                <motion.p>
                     {title}
                 </motion.p>
                 <p>
                     {title}
                 </p>
             </div>
-        </div>
+        </motion.div>
     )
 }
