@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import clsx from 'clsx';
 import Rounded from '../../common/RoundedButton';
 import { useInView, motion } from 'framer-motion';
-import { slideUp } from './animation';
+import { slideUp, opacity } from './animation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,48 +19,32 @@ export default function DynamicDescription({
   containerClass = ''
 }) {
   const containerRef = useRef(null);
-  const wordRefs = useRef([]);
   const isInView = useInView(containerRef);
 
   useEffect(() => {
-    const mm = gsap.matchMedia();
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: '100 bottom',
+          end: 'center bottom',
+          toggleActions: 'play none none reverse',
+        },
+      });
 
-    mm.add(
-      {
-        isMobile: '(max-width: 767px)',
-        isDesktop: '(min-width: 768px)',
-      },
-      (context) => {
-        const { isMobile } = context.conditions;
+      tl.to(
+        '.animated-word',
+        {
+          opacity: 1,
+          transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
+          ease: 'power2.inOut',
+          stagger: 0.02,
+        },
+        0
+      );
+    }, containerRef);
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 90%', // Better for mobile
-            end: 'center bottom',
-            toggleActions: 'play none none reverse',
-          },
-        });
-
-        tl.to(
-          wordRefs.current,
-          {
-            opacity: 1,
-            rotateX: 0,
-            rotateY: 0,
-            z: 0,
-            ease: 'power2.inOut',
-            stagger: isMobile ? 0.01 : 0.03,
-            duration: isMobile ? 0.4 : 0.8,
-          },
-          0
-        );
-
-        return () => tl.kill();
-      }
-    );
-
-    return () => mm.revert();
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -69,33 +53,14 @@ export default function DynamicDescription({
         <p className={styles.whiteColor}>
           {phrase.split(' ').map((word, index) => (
             <span key={index} className={styles.mask}>
-              <motion.span
-                ref={(el) => (wordRefs.current[index] = el)}
-                variants={slideUp}
-                custom={index}
-                animate={isInView ? 'open' : 'closed'}
-                style={{
-                  opacity: 0,
-                  transform: 'translate3d(0, 20px, 0) rotateX(10deg) rotateY(10deg)',
-                  display: 'inline-block',
-                }}
-              >
-                {word}
-              </motion.span>
+              <motion.span variants={slideUp} custom={index} animate={isInView ? "open" : "closed"} key={index}>{word}</motion.span>
             </span>
           ))}
         </p>
-        {subtext && (
-          <motion.p
-            variants={slideUp}
-            animate={isInView ? 'open' : 'closed'}
-            className={styles.whiteColor}
-          >
-            {subtext}
-          </motion.p>
-        )}
+        {subtext &&  <motion.p variants={slideUp} animate={isInView ? "open" : "closed"} className={styles.whiteColor}>{subtext}</motion.p>}
         {showButton}
       </div>
     </div>
   );
 }
+  

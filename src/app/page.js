@@ -13,6 +13,7 @@ import Service from '@/components/Service';
 import CardList from '@/components/CardList';
 import Client from '@/components/Client';
 import About from '@/components/About';
+import SmoothScrollProvider from '@/components/SmoothScroller/SmoothScrollProvider';
 
 export default function Home() {
 
@@ -39,7 +40,10 @@ export default function Home() {
         {isLoading && <Preloader />}
       </AnimatePresence>
       <Landing />
-      <Service />
+      {/* <Service /> */}
+      <SmoothScrollProvider>
+        <Service />
+      </SmoothScrollProvider>
       {/* <Typo /> */}
       {/* <CardList /> */}
       <About />
