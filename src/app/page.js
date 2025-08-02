@@ -46,11 +46,11 @@ export default function Home() {
       </SmoothScrollProvider>
       {/* <Typo /> */}
       {/* <CardList /> */}
-      <About />
+      {/* <About />
       <Client />
       <Projects />
       <SlidingImages />
-      <Contact />
+      <Contact /> */}
     </main>
   )
 }
