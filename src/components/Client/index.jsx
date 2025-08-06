@@ -6,11 +6,6 @@ import { useInView, motion } from 'framer-motion';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SplitType from 'split-type';
-import Lenis from '@studio-freight/lenis';
-import ScrollEarth from '../ScrollEarth';
-import SectionHeading from '../SectionHeading'
-import { ReactLenis } from "lenis/react"
 
 gsap.registerPlugin(ScrollTrigger);
 

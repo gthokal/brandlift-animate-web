@@ -1,16 +1,8 @@
 
-
 'use client'; 
-import styles from './style.module.scss';
-import { useEffect, useState, useRef} from 'react';
 import { useInView, motion } from 'framer-motion';
-import Image from 'next/image';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import Lenis from '@studio-freight/lenis';
-import Rounded from '../../common/RoundedButton';
 import SectionHeading from '../SectionHeading';
-import ScrollEarth from '../ScrollEarth';
 import { SplitText } from 'gsap/SplitText';
 
 gsap.registerPlugin(SplitText);

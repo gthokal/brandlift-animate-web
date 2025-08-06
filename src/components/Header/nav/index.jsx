@@ -13,7 +13,7 @@ const navItems = [
     href: "/",
   },
   {
-    title: "Work",
+    title: "Service",
     href: "/work",
   },
   {

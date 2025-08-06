@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import SplitType from 'split-type';
-import Lenis from '@studio-freight/lenis';
 import DynamicDescription from '../DynamicDescription';
 
 gsap.registerPlugin(ScrollTrigger);

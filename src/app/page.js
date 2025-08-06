@@ -7,13 +7,9 @@ import Landing from '../components/Landing';
 import Projects from '../components/Projects';
 import SlidingImages from '../components/SlidingImages';
 import Contact from '../components/Contact';
-import Typo from '../components/Typo';
-import ScrollEarth from '../components/ScrollEarth';
 import Service from '@/components/Service';
-import CardList from '@/components/CardList';
 import Client from '@/components/Client';
 import About from '@/components/About';
-import SmoothScrollProvider from '@/components/SmoothScroller/SmoothScrollProvider';
 
 export default function Home() {
 
@@ -40,17 +36,17 @@ export default function Home() {
         {isLoading && <Preloader />}
       </AnimatePresence>
       <Landing />
-      {/* <Service /> */}
-      <SmoothScrollProvider>
+      <Service />
+      {/* <SmoothScrollProvider>
         <Service />
-      </SmoothScrollProvider>
+      </SmoothScrollProvider> */}
       {/* <Typo /> */}
       {/* <CardList /> */}
-      {/* <About />
+      <About />
       <Client />
       <Projects />
       <SlidingImages />
-      <Contact /> */}
+      <Contact />
     </main>
   )
 }

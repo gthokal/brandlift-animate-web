@@ -26,7 +26,7 @@ export default function DynamicDescription({
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: '100 bottom',
+          start: '90% top',
           end: 'center bottom',
           toggleActions: 'play none none reverse',
         },

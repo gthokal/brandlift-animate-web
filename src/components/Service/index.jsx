@@ -1,13 +1,6 @@
 
 'use client';
-import styles from './style.module.scss';
-import { useEffect, useState, useRef} from 'react';
 import { useInView, motion } from 'framer-motion';
-import Image from 'next/image';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import SplitType from 'split-type';
-import Lenis from '@studio-freight/lenis';
 import SectionHeading from '../SectionHeading';
 import ScrollEarth from '../ScrollEarth';
 
