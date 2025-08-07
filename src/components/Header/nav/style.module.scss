@@ -27,16 +27,95 @@
                 text-transform: uppercase;
                 font-size: 11px;
                 margin-bottom: 40px;
+                @media (max-width: 768px){
+                    margin-bottom: 0;
+                }
             }
 
             a{
                 text-decoration: none;
                 color: white;
                 font-weight: 300;
+                @media (max-width: 768px){
+                    font-size: 40px;
+                }
             }
             @media (max-width: 768px){
-                display: none;
+                margin-top: 0;
             }
+        }
+    }
+
+    .logo{
+        display: flex;
+        cursor: pointer;
+        p{
+            margin: 0px;
+            transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+        .name{
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-left: 5px;
+            transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+            p{
+                position: relative;
+                transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+                &:nth-of-type(2){
+                    padding-left: 0.3em;
+                }
+                &:nth-of-type(3){
+                    position: absolute;
+                    left: 120px;
+                    padding-left: 0.3em;
+                }
+            }
+        }
+        &:hover{
+            .copyright{
+                transform: rotate(360deg);
+            }
+            .name{
+                padding-right: 30px;
+                .codeBy{
+                    transform: translateX(-100%);
+                }
+                .dennis{
+                    transform: translateX(-65px);
+                }
+                .snellenberg{
+                    transform: translateX(-65px);
+                }
+            }
+        }
+    }
+    
+    .logoLink {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 205px;
+        margin-top: 50px;
+    }
+
+    .logoLink .balloonImg {
+        position: absolute;
+        top: -85%;
+        right: 32px;
+        width: 36px;
+        animation: floatBalloon 2s ease-in-out infinite;
+    }
+
+    /* Keyframe for floating animation */
+    @keyframes floatBalloon {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
         }
     }
 }

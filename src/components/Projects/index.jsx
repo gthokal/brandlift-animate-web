@@ -42,6 +42,8 @@ const scaleAnimation = {
 
 export default function Home() {
 
+  const [isTouch, setIsTouch] = useState(false);
+
   const [modal, setModal] = useState({active: false, index: 0})
   const { active, index } = modal;
   const modalContainer = useRef(null);
@@ -55,7 +57,8 @@ export default function Home() {
   let xMoveCursorLabel = useRef(null);
   let yMoveCursorLabel = useRef(null);
 
-  useEffect( () => {
+  useEffect(() => {
+    setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
     //Move Container
     xMoveContainer.current = gsap.quickTo(modalContainer.current, "left", {duration: 0.8, ease: "power3"})
     yMoveContainer.current = gsap.quickTo(modalContainer.current, "top", {duration: 0.8, ease: "power3"})
@@ -67,14 +70,31 @@ export default function Home() {
     yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", {duration: 0.45, ease: "power3"})
   }, [])
 
+  // const moveItems = (x, y) => {
+  //   xMoveContainer.current(x)
+  //   yMoveContainer.current(y)
+  //   xMoveCursor.current(x)
+  //   yMoveCursor.current(y)
+  //   xMoveCursorLabel.current(x)
+  //   yMoveCursorLabel.current(y)
+  // }
   const moveItems = (x, y) => {
-    xMoveContainer.current(x)
-    yMoveContainer.current(y)
-    xMoveCursor.current(x)
-    yMoveCursor.current(y)
-    xMoveCursorLabel.current(x)
-    yMoveCursorLabel.current(y)
-  }
+    if (!isTouch) {
+      xMoveContainer.current(x);
+      yMoveContainer.current(y);
+      xMoveCursor.current(x);
+      yMoveCursor.current(y);
+      xMoveCursorLabel.current(x);
+      yMoveCursorLabel.current(y);
+    } else {
+      // Center modal for touch
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      xMoveContainer.current(centerX);
+      yMoveContainer.current(centerY);
+    }
+  };
+
   const manageModal = (active, index, x, y) => {
     moveItems(x, y)
     setModal({active, index})
@@ -85,30 +105,70 @@ export default function Home() {
       <div className={styles.socialContainer}>
         {
           projects.map( (project, index) => {
-            return <Project index={index} title={project.title} manageModal={manageModal} key={index} url={project.url}/>
+            return <Project 
+            index={index} 
+            title={project.title} 
+            manageModal={manageModal} 
+            key={index} 
+            url={project.url}/>
           })
         }
       </div>
       <>
-          <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className={styles.modalContainer}>
+          <motion.div
+            ref={modalContainer}
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? "enter" : "closed"}
+            className={styles.modalContainer}
+            onClick={() => isTouch && setModal({ active: false, index: 0 })}>
               <div style={{top: index * -100 + "%"}} className={styles.modalSlider}>
                   {
                       projects.map( (project, index) => {
                       const { src, color, url } = project
                       return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
-                          <Image 
+                          {/* <Image 
                           src={`/images/${src}`}
                           width={300}
                           height={0}
                           alt="image"
+                          /> */}
+                          <Image
+                            src={`/images/${src}`}
+                            width={300}
+                            height={200}
+                            alt={`${project.title} logo`}
+                            style={{ objectFit: "contain" }}
                           />
                       </div>
                       })
                   }
               </div>
           </motion.div>
+          
+          {!isTouch && (
+            <>
+              <motion.div
+                ref={cursor}
+                className={styles.cursor}
+                variants={scaleAnimation}
+                initial="initial"
+                animate={active ? "enter" : "closed"}
+              />
+              <motion.div
+                ref={cursorLabel}
+                className={styles.cursorLabel}
+                variants={scaleAnimation}
+                initial="initial"
+                animate={active ? "enter" : "closed"}
+              >View</motion.div>
+            </>
+            
+          )}
+{/* 
+
           <motion.div ref={cursor} className={styles.cursor} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"}></motion.div>
-          <motion.div ref={cursorLabel} className={styles.cursorLabel} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"}>View</motion.div>
+          <motion.div ref={cursorLabel} className={styles.cursorLabel} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"}>View</motion.div> */}
       </>
     </div>
   )

@@ -7,4 +7,17 @@
     @media (max-width: 768px){
         display: block;
     }
+    .footerLink{
+        text-decoration: none;
+        font-size: 12px;
+        color: #fff;
+        padding: 3px 5px;
+        border: 1px solid #292929;
+    }
+    .footerLink:hover{
+        cursor: pointer;
+        padding: 3px 5px;
+        border-radius: 3px;
+        border: 1px solid #AAFF01;
+    }
 }

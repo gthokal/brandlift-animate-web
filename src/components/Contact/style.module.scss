@@ -111,6 +111,24 @@
                 margin-left: 20px;
                 margin-right: 20px;
             }
+            .socialLink{
+                text-decoration: none;
+                color: #fff;
+                p{
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+            .socialLink{
+                text-decoration: none;
+                color: #fff;
+                .roundedButton{
+                    p{
+                        text-decoration: none;
+                        color: #fff;
+                    }
+                }
+            }
         }
         .info{
             display: flex;
@@ -129,12 +147,14 @@
                 @media (max-width: 768px){
                     flex-wrap: wrap;
                 }
-                p, h3{
+                .footerLink, h3{
                     margin: 0px;
                     padding: 2.5px;
                     cursor: pointer;
+                    text-decoration: none;
+                    color: #fff;
                 }
-                p{
+                .footerLink{
                     &::after{
                         content: "";
                         width: 0%;
@@ -167,6 +187,5 @@
             }
             
         }
-    }
-    
+    }  
 }

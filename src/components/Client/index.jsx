@@ -15,35 +15,35 @@ const clients = [
     src: "snackzo.png", 
     color: "#000000",
     desc: "Cafe,  Social Media,  Reels",
-    url: "https://www.instagram.com/officialbrandlift/"
+    url: "https://www.instagram.com/snackszocafe/"
   },
   {
-    title: "Bella lifesyles",
-    src: "bella.png",
+    title: "The Home Buddy",
+    src: "theHomeBuddy.png",
     color: "#000000",
-    desc: "Cafe,  Social Media,  Reels",
-    url: "https://www.facebook.com/people/Brandlift-Media/61575937634214/"
+    desc: "Smart shopping starts at home",
+    url: "https://www.instagram.com/thehomebuddy.in/"
   },
   {
     title: "Cavalli class",
     src: "CC.png",
     color: "#000000",
-    desc: "Cafe,  Social Media,  Reels",
-    url: "https://www.linkedin.com/company/official-brandlift-media/"
+    desc: "Social Media, Amazons, AI shoot",
+    url: "https://www.instagram.com/cavalliclassindia/"
   },
   {
     title: "chishti global solution",
     src: "Chisti.png",
     color: "#000000",
-    desc: "Cafe,  Social Media,  Reels",
-    url: "https://www.pinterest.com/officialbrandlift"
+    desc: "Best Hiring Services",
+    url: "https://www.instagram.com/_chishti_global_solutions_/"
   },
   {
     title: "Monsoon Solutions",
     src: "Monsoon.png",
     color: "#000000",
-    desc: "Cafe,  Social Media,  Reels",
-    url: "https://www.pinterest.com/officialbrandlift"
+    desc: "Rain Protection, reliable",
+    url: "https://monsoonsolution.com/"
   }
 ]
 
@@ -132,28 +132,6 @@ export default function Client() {
       );
     }); 
 
-  //   gsap.utils.toArray(clientImgRefs.current).forEach((imgEl, index) => {
-  //   if (imgEl) {
-  //     gsap.fromTo(imgEl, 
-  //       { 
-  //         y: 100, 
-  //         opacity: 0 
-  //       }, 
-  //       {
-  //         y: 0,
-  //         opacity: 1,
-  //         duration: 1,
-  //         ease: 'power2.out',
-  //         scrollTrigger: {
-  //           trigger: imgEl,
-  //           start: 'top 80%',
-  //           toggleActions: 'play none none reverse',
-  //         }
-  //       }
-  //     );
-  //   }
-  // });
-
   }, []);
 
 
@@ -164,65 +142,36 @@ export default function Client() {
               {clients.map((client, idx) => {
                 const { src } = client;
                 return (
-                      <div 
-                        key={idx} 
-                        ref={(el) => (cardRefs.current[idx] = el)}
-                        className={`${styles.clientRow}`}
-                      >
-                        <ClientItem
-                          key={idx}
-                          index={idx}
-                          title={client.title}
-                          desc={client.desc}
-                          url={client.url}
-                          manageModal={manageModal}
-                        />
+                  <div 
+                    key={idx} 
+                    ref={(el) => (cardRefs.current[idx] = el)}
+                    className={`${styles.clientRow}`}
+                  >
+                    <ClientItem
+                      key={idx}
+                      index={idx}
+                      title={client.title}
+                      desc={client.desc}
+                      url={client.url}
+                      manageModal={manageModal}
+                    />
 
-                        <div
-                          ref={(el) => (clientImgRefs.current[idx] = el)}
-                          className={`${styles.clientImage} ${idx % 2 === 0 ? 'rightCard' : 'leftCard'}`}
-                        >
-                          <Image 
-                            src={`/images/${client.src}`}
-                            width={638}
-                            height={478}
-                            alt="image"
-                          />
-                        </div>
-                      </div>
-
-                    // <div 
-                    // key={idx}
-                    // className={styles.clientRow}
-                    // >
-                    //     <ClientItem
-                    //         key={idx}
-                    //         index={idx}
-                    //         title={client.title}
-                    //         desc={client.desc}
-                    //         url={client.url}
-                    //         manageModal={manageModal}
-                    //     />
-
-                    //     <div
-                    //       ref={(el) => (clientImgRefs.current[idx] = el)}
-                    //       className={styles.clientImage}
-                    //     >
-                    //       <Image 
-                    //         src={`/images/${src}`}
-                    //         width={769}
-                    //         height={578}
-                    //         alt="image"
-                    //       />
-                    //     </div>
-
-                    // </div>
+                    <div
+                      ref={(el) => (clientImgRefs.current[idx] = el)}
+                      className={`${styles.clientImage} ${idx % 2 === 0 ? 'rightCard' : 'leftCard'}`}
+                    >
+                      <Image 
+                        className={`${styles.image}`}
+                        src={`/images/${client.src}`}
+                        width={638}
+                        height={478}
+                        alt="image"
+                      />
+                    </div>
+                  </div>
                 );
               })}
             </div>
-        
-
-
       </motion.div>
     </>
   );

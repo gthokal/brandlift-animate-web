@@ -8,22 +8,10 @@ import Curve from './Curve';
 import Footer from './Footer';
 
 const navItems = [
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "Service",
-    href: "/work",
-  },
-  {
-    title: "About",
-    href: "/about",
-  },
-  {
-    title: "Contact",
-    href: "/contact",
-  },
+  { title: "Home", href: "#home" },
+  { title: "Service", href: "#services" },
+  { title: "About", href: "#about" },
+  { title: "Contact", href: "#contact" },
 ]
 
 
@@ -43,7 +31,26 @@ export default function Index() {
        <div className={styles.body}>
             <div onMouseLeave={() => {setSelectedIndicator(pathname)}} className={styles.nav}>
                     <div className={styles.header}>
-                        <p>Navigation</p>
+                        <div className={styles.logo}>
+                          <div className={styles.logoImage}>
+                              <a href="#" className={styles.logoLink}>
+                                  <img
+                                      src="/images/logo.png"
+                                      alt="logo"
+                                      className=""
+                                      width="100%"
+                                  />
+                                  <span className={styles.balloonImg}>
+                                      <img
+                                      src="/images/animation-logo.png"
+                                      alt="logo"
+                                      className=""
+                                      width="100%"
+                                      />
+                                  </span>
+                              </a>
+                          </div>
+                        </div>
                     </div>
                     {
                       navItems.map( (data, index) => {

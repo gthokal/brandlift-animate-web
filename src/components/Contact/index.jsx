@@ -26,22 +26,27 @@ export default function Index() {
                         <h2>Let&apos;s work</h2>
                     </span>
                     <h2>together</h2>
-                    <motion.div style={{x}} className={styles.buttonContainer}>
+                    {/* <motion.div style={{x}} className={styles.buttonContainer}>
                         <Rounded  backgroundColor={"#334BD3"} className={styles.button}>
                             <p>Get in touch</p>
                         </Rounded>
-                    </motion.div>
-                    <motion.svg style={{rotate, scale: 2}} width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    </motion.div> */}
+                    {/* <motion.svg style={{rotate, scale: 2}} width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 8.5C8.27614 8.5 8.5 8.27614 8.5 8L8.5 3.5C8.5 3.22386 8.27614 3 8 3C7.72386 3 7.5 3.22386 7.5 3.5V7.5H3.5C3.22386 7.5 3 7.72386 3 8C3 8.27614 3.22386 8.5 3.5 8.5L8 8.5ZM0.646447 1.35355L7.64645 8.35355L8.35355 7.64645L1.35355 0.646447L0.646447 1.35355Z" fill="white"/>
-                    </motion.svg>
+                    </motion.svg> */}
                 </div>
                 <div className={styles.nav}>
+                    <a className='socialLink' href="mailto:brandlift.media17@gmail.com?subject=Inquiry&body=Hello, I'd like to know more..."
+                        style={{ textDecoration: "none", color: "inherit" }}>
                         <Rounded>
                             <p>info@brandliftmedia.in</p>
                         </Rounded>
+                    </a>
+                    <a className='socialLink' href="tel:9082163647" style={{ textDecoration: "none", color: "inherit" }}>
                         <Rounded>
                             <p>+91 9082163647</p>
                         </Rounded>
+                    </a>
                 </div>
                 <div className={styles.info}>
                     <div>
@@ -54,21 +59,13 @@ export default function Index() {
                         <span>
                             <h3>Socials</h3>
                             <Magnetic>
-                                <p>Brandlift</p>
+                                <p className={styles.footerLink}>Brandlift</p>
                             </Magnetic>
                         </span>
-                        <Magnetic>
-                            <p>Instagram</p>
-                        </Magnetic>
-                        <Magnetic>
-                            <p>Facebook</p>
-                        </Magnetic>
-                        <Magnetic>
-                            <p>Linkedin</p>
-                        </Magnetic>
-                        <Magnetic>
-                            <p>Pinterest</p>
-                        </Magnetic>
+                        <Magnetic><a className={styles.footerLink} href='https://www.instagram.com/officialbrandlift/' target='_blank'>Instagram</a></Magnetic>
+                        <Magnetic><a className={styles.footerLink} href='https://www.facebook.com/people/Brandlift-Media/61575937634214/' target='_blank'>Facebook</a></Magnetic>
+                        <Magnetic><a className={styles.footerLink} href='https://www.linkedin.com/company/official-brandlift-media/' target='_blank'>LinkedIn</a></Magnetic>
+                        <Magnetic><a className={styles.footerLink} href='https://in.pinterest.com/officialbrandlift/' target='_blank'>Pinterest</a></Magnetic>
                     </div>
                 </div>
             </div>
