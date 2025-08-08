@@ -59,7 +59,7 @@ export default function Index() {
                         <span>
                             <h3>Socials</h3>
                             <Magnetic>
-                                <p className={styles.footerLink}>Brandlift</p>
+                                <a className={styles.footerLink} href='#'>Brandlift</a>
                             </Magnetic>
                         </span>
                         <Magnetic><a className={styles.footerLink} href='https://www.instagram.com/officialbrandlift/' target='_blank'>Instagram</a></Magnetic>

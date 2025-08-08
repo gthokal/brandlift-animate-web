@@ -22,7 +22,7 @@ const clients = [
     src: "theHomeBuddy.png",
     color: "#000000",
     desc: "Smart shopping starts at home",
-    url: "https://www.instagram.com/thehomebuddy.in/"
+    url: "https://thehomebuddy.in/"
   },
   {
     title: "Cavalli class",
@@ -160,13 +160,15 @@ export default function Client() {
                       ref={(el) => (clientImgRefs.current[idx] = el)}
                       className={`${styles.clientImage} ${idx % 2 === 0 ? 'rightCard' : 'leftCard'}`}
                     >
-                      <Image 
-                        className={`${styles.image}`}
-                        src={`/images/${client.src}`}
-                        width={638}
-                        height={478}
-                        alt="image"
-                      />
+                      <a href={`${client.url}`} target="_blank" >
+                        <Image 
+                          className={`${styles.image}`}
+                          src={`/images/${client.src}`}
+                          width={638}
+                          height={478}
+                          alt="image"
+                        />
+                      </a>
                     </div>
                   </div>
                 );

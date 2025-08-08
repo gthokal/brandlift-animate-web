@@ -1,6 +1,8 @@
 .clientContainer{
     padding-left: 4rem;
     padding-right: 4rem;
+    max-width: 1280px;
+    margin: auto;
     @media (max-width: 768px){
         padding-left: 1rem;
         padding-right: 1rem;

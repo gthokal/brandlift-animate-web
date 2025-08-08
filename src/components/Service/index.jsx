@@ -10,12 +10,16 @@ export default function Service() {
             <>
                 <SectionHeading
                     title="Service"
-                    headings={["Were a digital", "Marketing Agency", "with expertise"]}
-                    phrase="We bring our passion for good design to brave brands and deliver something you can shout about."
-                    descriptionSubtext="The combination of my passion for design, code & interaction positions me in a unique place in the web design world."
+                    headings={["We're a Digital", "Marketing Agency with a", "Passion for Results"]}
+                    phrase="We combine strategy, creativity, and technology to elevate bold brands. With deep expertise in design, development, and digital marketing, we craft experiences that don't just look good  they perform."
+                    descriptionSubtext="Our passion for design, code, and user interaction puts us at the intersection of creativity and functionality — making us uniquely positioned to build impactful digital experiences that stand out."
                 />
                 <ScrollEarth />
-            </>
+            </> 
         </motion.div>
     )
 }
+
+
+
+
